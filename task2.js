@@ -3,26 +3,22 @@ function AgeInput(age){
     console.log(age);
     return age;
 }
-function AgeOutput(age){
-    if (age < 3) {
-        alert("Младенец");
-        console.log("Младенец");
-    } else {
-        if (age <= 12) {
-            alert("Ребёнок");
-            console.log("Ребёнок");
-        } else if (age <= 18) {
-            alert("Подросток");
-            console.log("Подросток");
-        } else {
-            if (age > 60) {
-                alert("Пожилой человек");
-                console.log("Пожилой человек");
-            } else
-                alert("Взрослый");
-                console.log("Взрослый");
-                }
-            }
+function AgeDefine(age){
+    if(age < 3)
+        return 0;
+    if(age <= 12)
+        return 1;
+    if(age <= 18)
+        return 2;
+    if(age <= 60)
+        return 3;
+    if(age > 60)
+        return 4;
+}
+function AlertOutput(x){
+    let alerts = ["Младенец","Ребенок","Подросток","Взрослый","Пожилой человек"];
+    alert(alerts[x]);
+    console.log(alerts[x]);
 }
 function AgeCheck(age){
     if (isNaN(age) || age < 0) {
@@ -34,6 +30,7 @@ function AgeCheck(age){
 function Main(){
     let age = AgeInput();
     AgeCheck(age);
-    AgeOutput(age);
+    let category = AgeDefine(age);
+    AlertOutput(category);
 }
 Main();
