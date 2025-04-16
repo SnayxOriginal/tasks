@@ -4,32 +4,30 @@ function AgeInput(age){
     return age;
 }
 function AgeDefine(age){
-    if(age < 3)
-        return 0;
-    if(age <= 12)
-        return 1;
-    if(age <= 18)
-        return 2;
-    if(age <= 60)
-        return 3;
-    if(age > 60)
-        return 4;
+    if(age < 3) return "Младенец";
+    if(age <= 12) return "Ребенок";
+    if(age <= 18) return "Подросток";
+    if(age <= 60) return "Взрослый";
+    if(age > 60) return "Пожилой человек";
 }
-function AlertOutput(x){
-    let alerts = ["Младенец","Ребенок","Подросток","Взрослый","Пожилой человек"];
-    alert(alerts[x]);
-    console.log(alerts[x]);
+function AlertOutput(age){
+    alert(age);
+    console.log(age);
 }
 function AgeCheck(age){
     if (isNaN(age) || age < 0) {
         alert("Ошибка. Введите правильное число");
-        age = AgeInput(age);
-        AgeCheck(age);
+        return true;
     }
+    else return false;
 }
 function Main(){
     let age = AgeInput();
-    AgeCheck(age);
+    let check = AgeCheck(age);
+    while (check === true){
+        age = AgeInput();
+        check = AgeCheck(age);
+    }
     let category = AgeDefine(age);
     AlertOutput(category);
 }
