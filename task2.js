@@ -28,7 +28,7 @@ function Main(){
         age = AgeInput();
         check = AgeCheck(age);
     }
-    let category = AgeDefine(age);
+    const category = AgeDefine(age);
     AlertOutput(category);
 }
 Main();
