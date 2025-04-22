@@ -1,47 +1,53 @@
-var firstOperand = 1;
-var secondOperand = 2;
+let firstOperand = 1;
+let secondOperand = 1;
+
 function FirstOperand() {
-  firstOperand = parseInt(prompt("Введите первое число", 1));
-  if (!isNaN(firstOperand)) {
-    SecondOperand();
-  } else{
-    alert('Ошибка. Введите число.');
-    FirstOperand();
+  firstOperand = parseInt(inputFirstOperand.value);
+  if (isNaN(firstOperand)) {
+    firstOperand = 0;
+    inputFirstOperand.placeholder = 0;
   }
 }
+
 function SecondOperand() {
-  secondOperand = parseInt(prompt("Введите второе число", 1));
-  if (!isNaN(secondOperand)) {
-    Operation();
-  } else {
-    alert('Ошибка. Введите число.');
-    SecondOperand();
+  secondOperand = parseInt(inputSecondOperand.value);
+  if (isNaN(secondOperand)) {
+    secondOperand = 0;
+    inputSecondOperand.placeholder = 0;
   }
 }
-FirstOperand();
 
 function Operation () {
-  let operation = prompt("Выберите операцию +,-,*,/", '+');
+  let operation = selectOperation.value;
   switch (operation) {
     case ('+'):
-      alert("Ответ: " + (firstOperand + secondOperand));
+      result.innerHTML = firstOperand + secondOperand;
       console.log("Ответ: ", firstOperand + secondOperand);
       break;
     case ('-'):
-      alert("Ответ: " + (firstOperand - secondOperand));
+      result.innerHTML = firstOperand - secondOperand;
       console.log("Ответ: ", firstOperand - secondOperand);
       break;
     case ('*'):
-      alert("Ответ: " + (firstOperand * secondOperand));
+      result.innerHTML = firstOperand * secondOperand;
       console.log("Ответ: ", firstOperand * secondOperand);
       break;
     case ('/'):
-      alert("Ответ: " + firstOperand / secondOperand);
+      let divideRes = firstOperand / secondOperand;
+      switch (divideRes){
+        default:
+          result.innerHTML = divideRes;
+          break;
+        case  (Infinity):
+          result.innerHTML = "Бесконечность";
+          break;
+      }
       console.log("Ответ: ", firstOperand / secondOperand);
       break;
-    default:
-      alert("Вы не вырбрали операцию");
-      window.location.reload();
   }
+}
+inputFirstOperand.oninput = inputSecondOperand.oninput = selectOperation.oninput = function Main () {
   FirstOperand();
+  SecondOperand();
+  Operation();
 }
