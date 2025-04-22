@@ -1,5 +1,5 @@
 function AgeInput(age){
-    age = parseInt(prompt("Введите свой возраст"));
+    age = parseInt(inputAgeOperand.value);
     console.log(age);
     return age;
 }
@@ -11,24 +11,24 @@ function AgeDefine(age){
     if(age > 60) return "Пожилой человек";
 }
 function AlertOutput(age){
-    alert(age);
+    result.innerHTML = age;
     console.log(age);
 }
 function AgeCheck(age){
     if (isNaN(age) || age < 0) {
-        alert("Ошибка. Введите правильное число");
+        inputAgeOperand.value = '';
+        inputAgeOperand.placeholder = 0;
         return true;
     }
     else return false;
 }
-function Main(){
+inputAgeOperand.oninput = function Main(){
     let age = AgeInput();
     let check = AgeCheck(age);
     while (check === true){
-        age = AgeInput();
+        age = 0;
         check = AgeCheck(age);
     }
     const category = AgeDefine(age);
     AlertOutput(category);
 }
-Main();
