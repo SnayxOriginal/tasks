@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание №1</title>
+    <link rel="stylesheet" href="task1.css">
+</head>
+<body>
+<div>
+    <label>
+        Введите первое число:
+        <input class="Input" type="number" id="inputFirstOperand" value="0">
+    </label>
+</div>
+<div>
+    <label>
+        Введите второе число:
+        <input class="Input" type="number" id="inputSecondOperand" value="0">
+    </label>
+</div>
+<div>
+<label>
+    Выберите операцию:
+    <select class="Input" id="selectOperation">
+        <option value="+" selected> Сложение </option>
+        <option value="-" > Вычитание </option>
+        <option value="/"> Деление </option>
+        <option value="*"> Умножение </option>
+    </select>
+</label>
+</div>
+<div>
+    <span class="Result">Итог: <span id="result">0</span></span>
+</div>
+<script  src="task1.js"></script>
+</body>
+</html>
